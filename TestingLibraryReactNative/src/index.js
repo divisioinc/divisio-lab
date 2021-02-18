@@ -1,7 +1,50 @@
+import 'react-native-gesture-handler'
 import React from 'react'
+import { View } from 'react-native'
+import { NavigationContainer } from '@react-navigation/native'
+import { createStackNavigator } from '@react-navigation/stack'
 
-import App from '@/App'
+import Login from '@/screens/Login'
+import Home from '@/screens/Home'
 
-const Main = () => <App />
+const Stack = createStackNavigator()
 
-export default Main
+const defaultOptions = { header: () => <View /> }
+
+const StackNavigator = () => (
+  <Stack.Navigator>
+    <Stack.Screen
+      name="Login"
+      component={Login}
+      options={{
+        ...defaultOptions,
+        gestureEnabled: false
+      }}
+    />
+    <Stack.Screen
+      name="Home"
+      component={Home}
+      options={{
+        ...defaultOptions,
+        gestureEnabled: false
+      }}
+    />
+  </Stack.Navigator>
+)
+
+const App = () => (
+  <NavigationContainer>
+    <Stack.Navigator>
+      <Stack.Screen
+        name="StackNavigator"
+        component={StackNavigator}
+        options={{
+          ...defaultOptions,
+          gestureEnabled: false
+        }}
+      />
+    </Stack.Navigator>
+  </NavigationContainer>
+)
+
+export default App
