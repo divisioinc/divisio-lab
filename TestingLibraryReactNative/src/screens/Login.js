@@ -7,6 +7,8 @@ import {
   Alert,
   ActivityIndicator
 } from 'react-native'
+import { useNavigation } from '@react-navigation/native'
+
 import styled from 'styled-components/native'
 
 import { Input, Button } from '@/style-guide'
@@ -35,7 +37,8 @@ const InputText = styled(Input)`
   margin-bottom: 25px;
 `
 
-const Login = ({ navigation }) => {
+const Login = () => {
+  const navigation = useNavigation()
   const [isLoading, setLoading] = useState(false)
   const [login, setLogin] = useState('')
   const [password, setPassword] = useState('')
