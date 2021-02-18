@@ -14,8 +14,8 @@ const Container = styled.ScrollView`
 const Home = ({ navigation }) => (
   <Container>
     <Header
-      title="Bem vindo, ze mané"
-      subTitle="Agora pede pra sair:"
+      title="Bem vindo, usuário"
+      subTitle="Clique para sair."
     />
     <Button
       text="Sair"

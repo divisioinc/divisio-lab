@@ -11,7 +11,7 @@ import styled from 'styled-components/native'
 
 import { Input, Button } from '@/style-guide'
 
-const errorMsg = 'Senha errada pô, é login:pass.'
+const errorMsg = 'Login ou senha errados. O certo é login:pass.'
 
 const Container = styled.View`
   background-color: white;
