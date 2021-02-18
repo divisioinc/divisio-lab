@@ -43,14 +43,13 @@ const Login = ({ navigation }) => {
   const onEnter = async () => {
     setLoading(true)
 
-    if (login === 'login' && password === 'pass') {
+    if (login === 'Login' && password === 'pass') {
       navigation.navigate('Home')
     } else {
       Alert.alert(errorMsg)
     }
     setLogin('')
     setPassword('')
-    Alert.alert(errorMsg)
 
     setLoading(false)
   }
