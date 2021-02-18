@@ -1,4 +1,7 @@
 module.exports = {
   root: true,
-  extends: '@react-native-community',
+  extends: 'eslint-config-divisio',
+  rules: {
+    'react/prop-types': 0
+  }
 };
