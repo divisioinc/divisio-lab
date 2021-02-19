@@ -15,37 +15,39 @@ beforeEach(() => {
   useNavigation.mockReset()
 })
 
-it('Login works correctly with right credentials', async () => {
-  const mockNavigate = jest.fn()
+describe('Login page', () => {
+  it('Works correctly with right credentials', async () => {
+    const mockNavigate = jest.fn()
 
-  useNavigation.mockImplementation(() => ({ navigate: mockNavigate }))
+    useNavigation.mockImplementation(() => ({ navigate: mockNavigate }))
 
-  const username = 'Login'
-  const password = 'pass'
-  const { getByText, getByPlaceholderText } = render(<Login />)
-  const button = getByText(/Entrar/i)
+    const username = 'Login'
+    const password = 'pass'
+    const { getByText, getByPlaceholderText } = render(<Login />)
+    const button = getByText(/Entrar/i)
 
-  fireEvent.changeText(getByPlaceholderText(/Login/i), username)
-  fireEvent.changeText(getByPlaceholderText(/Password/i), password)
-  fireEvent.press(button)
+    fireEvent.changeText(getByPlaceholderText(/Login/i), username)
+    fireEvent.changeText(getByPlaceholderText(/Password/i), password)
+    fireEvent.press(button)
 
-  await waitFor(() => expect(mockNavigate).toHaveBeenCalledTimes(1))
-  expect(mockNavigate).toHaveBeenCalledWith('Home')
-})
+    await waitFor(() => expect(mockNavigate).toHaveBeenCalledTimes(1))
+    expect(mockNavigate).toHaveBeenCalledWith('Home')
+  })
 
-it('Login works correctly with wrong credentials', async () => {
-  const mockNavigate = jest.fn()
+  it('Works correctly with wrong credentials', async () => {
+    const mockNavigate = jest.fn()
 
-  useNavigation.mockImplementation(() => ({ navigate: mockNavigate }))
+    useNavigation.mockImplementation(() => ({ navigate: mockNavigate }))
 
-  const username = 'wrong'
-  const password = ''
-  const { getByText, getByPlaceholderText } = render(<Login />)
-  const button = getByText(/Entrar/i)
+    const username = 'wrong'
+    const password = ''
+    const { getByText, getByPlaceholderText } = render(<Login />)
+    const button = getByText(/Entrar/i)
 
-  fireEvent.changeText(getByPlaceholderText(/Login/i), username)
-  fireEvent.changeText(getByPlaceholderText(/Password/i), password)
-  fireEvent.press(button)
+    fireEvent.changeText(getByPlaceholderText(/Login/i), username)
+    fireEvent.changeText(getByPlaceholderText(/Password/i), password)
+    fireEvent.press(button)
 
-  expect(Alert.alert).toHaveBeenCalledWith('Login ou senha errados. O certo é Login:pass.')
+    expect(Alert.alert).toHaveBeenCalledWith('Login ou senha errados. O certo é Login:pass.')
+  })
 })
