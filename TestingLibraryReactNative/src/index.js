@@ -6,6 +6,7 @@ import { createStackNavigator } from '@react-navigation/stack'
 
 import Login from '@/screens/Login'
 import Home from '@/screens/Home'
+import Products from '@/screens/Products'
 
 const Stack = createStackNavigator()
 
@@ -28,6 +29,11 @@ const StackNavigator = () => (
         ...defaultOptions,
         gestureEnabled: false
       }}
+    />
+    <Stack.Screen
+      name="Products"
+      component={Products}
+      options={defaultOptions}
     />
   </Stack.Navigator>
 )
