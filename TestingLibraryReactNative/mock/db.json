@@ -1,0 +1,9 @@
+{
+  "products": [
+    { "id": 1, "title": "Groselha" },
+    { "id": 2, "title": "Amora" },
+    { "id": 3, "title": "Framboesa" },
+    { "id": 4, "title": "Cranberry" },
+    { "id": 5, "title": "Mirtilo" }
+  ]
+}
